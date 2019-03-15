@@ -1,0 +1,16 @@
+service: my_service
+
+provider:
+  name: openwhisk
+  ignore_certs: true
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: api/hello
+          method: get
+
+plugins:
+  - serverless-openwhisk
